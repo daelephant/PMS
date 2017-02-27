@@ -1,0 +1,71 @@
+<?php
+  $navs = D("Menu")->getAdminMenus();
+  $index = 'index';
+?>
+
+
+
+<script>　
+
+var t = null;
+t = setTimeout(time,1000);
+function time(){
+clearTimeout(t);
+dt = new Date();
+// var y = dt.getYear();
+// var m = dt.getMonth();
+// var d = dt.getDay();
+var h = dt.getHours();
+var m = dt.getMinutes();
+var s = dt.getSeconds();
+document.getElementById("timeShow").innerHTML= h + "时" + m + "分" + s + "秒";
+t = setTimeout(time,1000);
+}
+
+</script>
+
+
+ 
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    
+    <a class="navbar-brand" >中电瑞铠产品管理平台</a>
+    
+    <label id="timeShow" style="color:#C0C0C0;margin-top:25px;margin-left:25px;">正在载入：</label>
+   
+  </div>
+  <!-- Top Menu Items -->
+  <ul class="nav navbar-right top-nav">
+    
+    
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 超级管理员 <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="/admin.php?c=admin&a=personal"><i class="fa fa-fw fa-user"></i> 个人中心</a>
+        </li>
+       
+        <li class="divider"></li>
+        <li>
+          <a href="/index.php?m=admin&c=login&a=loginout"><i class="fa fa-fw fa-power-off"></i> 退出</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav nav_list">
+      <li {$index|getActive}>
+        <a href="/admin.php"><i class="fa fa-fw fa-dashboard"></i> 首页</a>
+      </li>
+      <volist name="navs" id="nav">
+      <li {$nav.c|getActive}>
+        <a href="{$nav|getAdminMenuUrl}"><i class="fa fa-fw fa-bar-chart-o"></i>{$nav.name}</a>
+      </li>
+      </volist>
+    </ul>
+  </div>
+  <!-- /.navbar-collapse -->
+</nav>

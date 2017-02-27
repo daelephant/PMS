@@ -1,0 +1,185 @@
+
+<include file="Index/header" />
+<body>
+
+<div id="wrapper">
+
+    <include file="Index/nav"/>
+
+    <div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-dashboard"></i>  <a href="/admin.php?c=menu">采购管理</a>
+                    </li>
+                    <li class="active">
+                        <i class="fa fa-edit"></i> 编辑
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-6">
+
+                <form class="form-horizontal" id="singcms-form">
+                    <div class="form-group">
+                        <label for="inputname" class="col-sm-2 control-label">采购名:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="name" class="form-control" id="inputname" placeholder="请填写采购名" value="{$collect.name}">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="inputname" class="col-sm-2 control-label">商品编号:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="idnumber" class="form-control" id="inputname" placeholder="请填写商品编号" value="{$collect.idnumber}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputname" class="col-sm-2 control-label">规格型号:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="idmodel" class="form-control" id="inputname" placeholder="请填写规格型号" value="{$collect.idmodel}">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">性质:</label>
+                        <div class="col-sm-5">
+                            <input type="radio" name="status" id="optionsRadiosInline1" value="半成品" <if condition="$collect.status eq 半成品">checked</if>> 半成品
+                            <input type="radio" name="status" id="optionsRadiosInline2" value="配件" <if condition="$collect.status eq 配件">checked</if>> 配件
+                            <input type="radio" name="status" id="optionsRadiosInline2" value="成品" <if condition="$collect.status eq 成品">checked</if>> 成品
+                        </div>
+
+                    </div>
+                     <div class="form-group">
+                        <label for="inputname" class="col-sm-2 control-label">数量:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="number" class="form-control" id="inputname" placeholder="请填写数量(个/台)" value="{$collect.number}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputname" class="col-sm-2 control-label">单价:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="price" class="form-control" id="inputname" placeholder="请填写单价￥/每(个、台)" value="{$collect.price}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputname" class="col-sm-2 control-label">入库人:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="buyer" class="form-control" id="inputname" placeholder="请填写入库人" value="{$collect.buyer}">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="inputname" class="col-sm-2 control-label">经办人:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="auditor" class="form-control" id="inputname" placeholder="请填写经办人" value="{$collect.auditor}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  for="inputname" class="col-sm-2 control-label">入库时间:</label>
+                        <div class="col-sm-5">
+                            <input readonly="true" type="text" name="time" class="form-control" id="inputname" placeholder="" value="{$collect.time}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputname" class="col-sm-2 control-label">备注:</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="comment" class="form-control" id="inputname" placeholder="请填写备注信息" value="{$collect.comment}">
+                        </div>
+                    </div>
+                    <!--<div class="form-group">
+                        <label for="inputname" class="col-sm-2 control-label">父类采购ID:</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" name="parentid">
+                                <option value="0">一级采购</option>
+                                <volist name="menus" id="parent">
+                                    <option value="{$parent.menu_id}">{$parent.name}</option>
+                                </volist>
+                            </select>
+                        </div>
+                    </div>-->
+                    <!-- <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">采购类型:</label>
+                        <div class="col-sm-5">
+                            <input type="radio" name="type" id="optionsRadiosInline1" value="1" <if condition="$menu.type eq 1">checked</if>> 后台采购
+                            <input type="radio" name="type" id="optionsRadiosInline2" value="0" <if condition="$menu.type eq 0">checked</if>> 前端栏目
+                        </div>
+
+                    </div> -->
+                   <!--  <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">模块名:</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="m" id="inputPassword3" placeholder="模块名如admin" value="{$menu.m}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">控制器:</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="c" id="inputPassword3" placeholder="控制器如index" value="{$menu.c}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">方法:</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="f" id="inputPassword3" placeholder="方法名如index" value="{$menu.f}">
+                        </div>
+                    </div> -->
+                    <!--<div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">是否为前台采购:</label>
+                        <div class="col-sm-5">
+                            <input type="radio" name="type" id="optionsRadiosInline1" value="0" checked> 否
+                            <input type="radio" name="type" id="optionsRadiosInline2" value="1"> 是
+                        </div>
+
+                    </div>-->
+
+                  <!--   <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">状态:</label>
+                        <div class="col-sm-5">
+                            <input type="radio" name="status" id="optionsRadiosInline1" value="1" <if condition="$menu.status eq 1">checked</if>> 开启
+                            <input type="radio" name="status" id="optionsRadiosInline2" value="0" <if condition="$menu.status eq 0">checked</if>> 关闭
+                        </div>
+
+                    </div> -->
+                    <input type="hidden" name="id" value="{$collect.id}"/>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" class="btn btn-default" id="singcms-button-submit">更新</button>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+<!-- Morris Charts JavaScript -->
+<script>
+
+    var SCOPE = {
+        'save_url' : '/admin.php?c=menu&a=add',
+        'jump_url' : '/admin.php?c=menu',
+    }
+</script>
+<include file="Index/footer" />
+
+
+
+
+

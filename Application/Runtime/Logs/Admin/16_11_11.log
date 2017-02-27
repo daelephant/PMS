@@ -1,0 +1,391 @@
+[ 2016-11-11T09:10:58+08:00 ] 127.0.0.1 /index.php?m=admin&c=login&a=check
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'admin' [ RunTime:0.0468s ]
+SQL: SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  [password] FROM [admin] ) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.0312s ]
+
+[ 2016-11-11T11:04:27+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0312s ]
+SQL: INSERT INTO [collect] ([name],[status],[number],[price],[buyer],[auditor],[time],[comment]) VALUES ('U盘','1','22','30','程大象','王芳','2016/11/11','金士顿U盘') [ RunTime:0.4552s ]
+
+[ 2016-11-11T11:10:06+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-11T11:10:18+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-11T11:13:14+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0200s ]
+SQL: INSERT INTO [collect] ([name],[status],[number],[price],[buyer],[auditor],[time],[comment]) VALUES ('2','4','5','6','7','8','9','0') [ RunTime:0.0432s ]
+
+[ 2016-11-11T11:13:56+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0200s ]
+SQL: INSERT INTO [collect] ([name],[status],[number],[price],[buyer],[auditor],[time],[comment]) VALUES ('5','5','5','5','5','5','5','5') [ RunTime:0.0030s ]
+
+[ 2016-11-11T11:14:09+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0000s ]
+SQL: INSERT INTO [collect] ([name],[status],[number],[price],[buyer],[auditor],[time],[comment]) VALUES ('5','5','5','5','5','5','5','5') [ RunTime:0.0000s ]
+
+[ 2016-11-11T11:14:12+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0000s ]
+SQL: INSERT INTO [collect] ([name],[status],[number],[price],[buyer],[auditor],[time],[comment]) VALUES ('5','5','5','5','5','5','5','5') [ RunTime:0.0000s ]
+
+[ 2016-11-11T11:15:20+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0150s ]
+SQL: INSERT INTO [collect] ([name],[status],[number],[price],[buyer],[auditor],[time],[comment]) VALUES ('a','0','0','a','a','a','a','a') [ RunTime:0.0020s ]
+
+[ 2016-11-11T11:16:04+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0230s ]
+SQL: INSERT INTO [collect] ([name],[status],[number],[price],[buyer],[auditor],[time],[comment]) VALUES ('ab','0','0','ab','ab','ab','ab','ab') [ RunTime:0.0130s ]
+
+[ 2016-11-11T11:17:28+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0180s ]
+SQL: INSERT INTO [collect] ([idNumber],[name],[idModel],[status],[number],[price],[buyer],[auditor],[time],[comment]) VALUES ('c','c','c','0','0','c','c','c','c','c') [ RunTime:0.0120s ]
+
+[ 2016-11-11T15:01:50+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0000s ]
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+
+[ 2016-11-11T15:02:09+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0080s ]
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+
+[ 2016-11-11T15:25:48+08:00 ] 127.0.0.1 /index.php?m=admin&c=login&a=check
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'admin' [ RunTime:0.0468s ]
+SQL: SELECT T1.* FROM (SELECT thinkphp.*, ROW_NUMBER() OVER ( ORDER BY rand()) AS ROW_NUMBER FROM (SELECT  [password] FROM [admin] ) AS thinkphp) AS T1 WHERE (T1.ROW_NUMBER BETWEEN 1 AND 1) [ RunTime:0.1248s ]
+
+[ 2016-11-11T15:37:35+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0190s ]
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+
+[ 2016-11-11T15:37:43+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0070s ]
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+
+[ 2016-11-11T15:38:33+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0190s ]
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+
+[ 2016-11-11T15:38:39+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0416s ]
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+
+[ 2016-11-11T15:39:12+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0180s ]
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+
+[ 2016-11-11T15:47:07+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0290s ]
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+
+[ 2016-11-11T16:01:45+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0270s ]
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+
+[ 2016-11-11T16:02:19+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0280s ]
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+
+[ 2016-11-11T16:38:08+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: id D:\WWW\project\Application\Admin\Controller\MenuController.class.php 第 31 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0300s ]
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+ERR: 102:[Microsoft][SQL Server Native Client 11.0][SQL Server]“)”附近有语法错误。
+ [ SQL语句 ] : INSERT INTO [collect] () VALUES ()
+
+[ 2016-11-11T16:41:46+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0060s ]
+SQL: UPDATE [collect] SET [name]='ab1' WHERE ( id=14 ) [ RunTime:0.0710s ]
+
+[ 2016-11-11T16:41:58+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0010s ]
+SQL: UPDATE [collect] SET [name]='c1' WHERE ( id=15 ) [ RunTime:0.0090s ]
+
+[ 2016-11-11T16:42:11+08:00 ] 127.0.0.1 /admin.php?c=menu&a=setStatus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Common\Model\MenuModel::find() should be compatible with Think\Model::find($options = Array) D:\WWW\project\Application\Admin\Model\MenuModel.class.php 第 5 行.
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'menu' [ RunTime:0.0000s ]
+SQL: UPDATE [menu] SET [status]='-1' WHERE ( menu_id=14 ) [ RunTime:0.0396s ]
+
+[ 2016-11-11T16:45:07+08:00 ] 127.0.0.1 /admin.php?c=menu&a=add
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SELECT   column_name,   data_type,   column_default,   is_nullable
+        FROM    information_schema.tables AS t
+        JOIN    information_schema.columns AS c
+        ON  t.table_catalog = c.table_catalog
+        AND t.table_schema  = c.table_schema
+        AND t.table_name    = c.table_name
+        WHERE   t.table_name = 'collect' [ RunTime:0.0000s ]
+SQL: UPDATE [collect] SET [name]='c1' WHERE ( id=15 ) [ RunTime:0.0156s ]
+
+[ 2016-11-11T16:52:06+08:00 ] 127.0.0.1 /admin.php?c=basic
+ERR: 无法加载控制器:Basic
+

@@ -1,0 +1,30 @@
+[ 2016-10-21T22:47:12+08:00 ] 172.16.86.0 /?m=index&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005288s ]
+ERR: 无法加载模块:Index
+
+[ 2016-10-21T22:47:19+08:00 ] 172.16.86.0 /?m=index&c=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005188s ]
+ERR: 无法加载模块:Index
+
+[ 2016-10-21T22:50:19+08:00 ] 172.16.86.0 /?m=index&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003515s ]
+ERR: 无法加载模块:Index
+
+[ 2016-10-21T22:50:29+08:00 ] 172.16.86.0 /?m=index&c=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000058s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004164s ]
+ERR: 无法加载模块:Index
+
+[ 2016-10-21T22:53:28+08:00 ] 172.16.86.0 /?m=index&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004316s ]
+ERR: 无法加载模块:Index
+

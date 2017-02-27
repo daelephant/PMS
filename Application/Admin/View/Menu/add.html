@@ -1,0 +1,175 @@
+
+<include file="Index/header" />
+<style type="text/css">
+   /* td {
+        width:500px;
+    }*/
+</style>
+
+<body>
+
+<div id="wrapper">
+
+    <include file="Index/nav"/>
+
+    <div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-dashboard"></i>  <a href="/admin.php?c=menu">采购管理</a>
+                    </li>
+                    <li class="active">
+                        <i class="fa fa-edit"></i> 添加
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+<link rel="stylesheet" type="text/css" href="/Public/css/main.css" />        
+<script type="text/javascript" src="/Public/js/jquery-2.0.2.js"></script>
+<script type="text/javascript" src="/Public/js/duplicateElement.min.js"></script>
+
+<script  type="text/javascript">
+    $(function () {
+        $('#additional').duplicateElement({
+            "class_remove": ".remove",
+            "class_create": ".create"
+        });
+        $(".button").click(function(){
+            var data = $("#singcms-form").serialize();
+            alert(data);
+        });
+        
+    });
+</script>
+        <div class="row">
+            <div class="col-lg-6">
+                            <!-- start -->
+
+                                                <table class="table table-bordered table-hover singcms-table">
+                                                    <thead>
+                                                    <tr>
+                                                        <!-- <th width="14">排序</th>
+                                                        <th style="width:150px;">id</th> -->
+                                                        <th><div style="width:110px;">商品编号</div></th>
+                                                        <th><div style="width:110px;">商品名</div></th>
+                                                        <th><div style="width:110px;">规格型号</div></th>
+                                                        <th><div style="width:110px;">性质</div></th>
+                                                        <th><div style="width:110px;">数量</div></th>
+                                                        <th><div style="width:110px;">金额</div></th>
+                                                        <th><div style="width:110px;">入库人</div></th>
+                                                        <th><div style="width:110px;">经办人</div></th>
+                                                        <th><div style="width:110px;">入库时间</div></th>
+                                                        <th><div style="width:110px;">备注</div></th>
+
+                                                        <th><div style="width:55px;">操作</div></th>
+                                                    </tr>
+                                                    </thead>
+                                                    
+                                                   </table> 
+                                                      <!-- <form  class="form-horizontal" id="singcms-form"> -->
+                                                      <form id="myform" name="myform" action="/admin.php?c=menu&a=add" method="post">
+                                                        <fieldset id="additional">
+                                                         <table class="table table-bordered table-hover singcms-table">
+                                                    
+                                                     <tr>
+                                                            
+                                                        
+                                                        <!-- <th width="14">排序</th> -->
+                                                        <!-- <th style="width:15px;">1</th> -->
+                                                        <td><input type="text" style="width:110px;" name="idnumber[]" class="form-control" id="inputname" placeholder="商品编号"></td>
+                                                        <th><input type="text" name="name[]" style="width:110px;" class="form-control" id="inputname" placeholder="商品名"></th>
+                                                        <th><input type="text" name="idmodel[]" style="width:110px;" class="form-control" id="inputname" placeholder="规格型号"></th>
+                                                        <th>
+                                                               <!--  <select name="status[]" style="width:110px;" class="form-control" id="inputname">
+                                                                    <option disabled="" selected="">请选择</option>
+                                                                    <option value="0">配件</option>
+                                                                    <option value="1">半成品</option>
+                                                                    <option value="2">成品</option>
+                                                                </select> -->
+                                                        <input type="text" name="status[]" style="width:110px;" class="form-control" id="inputname" placeholder="性质"></th>
+                                                        <th><input type="text" name="number[]" style="width:110px;" class="form-control" id="inputname" placeholder="数量"></th>
+                                                        <th><input type="text" name="price[]" style="width:110px;" class="form-control" id="inputname" placeholder="金额"></th>
+                                                        <th><input type="text" name="buyer[]" style="width:110px;" class="form-control" id="inputname" placeholder="入库人"></th>
+                                                        <th><input type="text" name="auditor[]" style="width:110px;" class="form-control" id="inputname" placeholder="经办人"></th>
+                                                        <th><input type="text" name="time[]" style="width:110px;" class="form-control" id="inputname" placeholder="2016/11/11"></th>
+                                                        <th><input type="text" name="comment[]" style="width:110px;" class="form-control" id="inputname" placeholder="备注"></th>
+
+                                                        <!-- <th><span class="glyphicon glyphicon-edit" aria-hidden="true" id="singcms-edit" attr-id="{$collect.id}"></span> </span></a></th> -->
+                                                        <th >
+                                                        <a href="javascript:void(0);"  class="btn remove">移除</a>
+                                                        <a href="javascript:void(0);"  class="btn create">复制</a>
+                                                        <!-- <input type="button"  style="width:50px;"  class="btn btn-success"  value="增加" id="addTable" onclick="add_tr(this)"/>
+                                                            <input  type="button" style="width:50px;" class="btn btn-success"   value="删除" id="deleteTable" onclick="del_tr(this)"/> -->
+                                                            </th>
+
+                                                    
+                                                    </tr>
+                                                    </table>
+                                                    </fieldset>
+                                                    <!-- <volist name="collect_list" id="collect"> -->
+                                                        <!-- <tr>
+                                                            <td><input size="4" type="text" name="listorder[{$menu.menu_id}]" value="{$menu.listorder}"/></td>
+                                                            <td>{$collect.id}1</td>
+                                                            <td><input type="text" name="name" class="form-control" id="inputname" placeholder="请填写采购名"></td>
+                                                            <td>{$collect.name}</td>
+                                                            <td>{$collect.idmodel}</td>
+                                                            <td>{$collect.status|getMenuType}</td>
+                                                            <td>{$collect.number}</td>
+                                                            <td>{$collect.price}</td>
+                                                            <td>{$collect.time}</td>
+                                                            <td>{$collect.number}</td>
+                                                            <td><span class="glyphicon glyphicon-edit" aria-hidden="true" id="singcms-edit" attr-id="{$collect.id}"></span>    <a href="javascript:void(0)" attr-id="{$collect.id}" id="singcms-delete"  attr-a="menu" attr-message="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a></td>
+                                                        </tr> -->
+                                                    <!-- </volist> -->
+
+                                                   
+                                               
+                                                
+                            <!-- end -->
+
+                    <div style="margin-left:-180px;" class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10 sub_btn">
+                            <!-- <button type="button" class="btn btn-default button" id="singcms-button-submit">提交</button> -->
+                            <input type="submit"  class="btn" value="提交">
+                        </div>
+                    </div>
+                </form>
+                
+
+                <!-- end -->
+              
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+<!-- Morris Charts JavaScript -->
+<script>
+
+    var SCOPE = {
+        'save_url' : '/admin.php?c=menu&a=add',
+        'jump_url' : '/admin.php?c=menu',
+    }
+</script>
+<include file="Index/footer" />
+
+
+
+
+
