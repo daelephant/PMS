@@ -24,10 +24,10 @@ class LoginController extends Controller {
      if(!trim($password)){
        return show(0,'密码不为空');
      }
-     $ret = M('admin')->field('password')->where('username'=="$username")->find();
+     $ret = M('admin')->field('username,password')->where('username'=="$username")->find();
      //var_dump($ret);exit;
      //print_r($ret);
-     if(!$ret) {
+     if($ret['username'] != $username) {
          return show(0,'该用户名不存在');
      }
      if($ret['password'] != getMd5Password($password)){

@@ -1,6 +1,6 @@
 <?php
 /**
- * 后台菜单相关
+ * 后台成品相关
  */
 namespace Admin\Controller;
 use Think\Controller;
@@ -8,15 +8,11 @@ use Think\Upload;
 use Think\Image;
 use Org\Util\Page;
 
-/**
-* 
-*/
-class MenuController extends CommonController {
+class ProductController extends CommonController {
 	
 	public function add(){
 		//$post = serialize($_POST);
 		//print_r($_POST);
-		//String[] names = request.getParamterValues("name");
 		if ($_POST) {
 			
 			// if (!isset($_POST['name'][0]) || !$_POST['name'][0]) {//判断是否设置，是否设置为空
@@ -43,27 +39,34 @@ class MenuController extends CommonController {
 			//$name = $_POST['name']['1'];
 			//$c=count($_POST[name]);
 			//var_dump($c);
-			for ($i=0; $i < count($_POST[name]) ; $i++) { 
-				$datalist[] = array('name'=>$_POST['name'][$i],
+			for ($i=0; $i < count($_POST[idnumber]) ; $i++) { 
+				$datalist[] = array('batch'=>$_POST['batch'][$i],
 									'idnumber'=>$_POST['idnumber'][$i],
-									'idmodel'=>$_POST['idmodel'][$i],
-									'status'=>$_POST['status'][$i],
-									'number'=>$_POST['number'][$i],
-									'price'=>$_POST['price'][$i],
-									'buyer'=>$_POST['buyer'][$i],
-									'auditor'=>$_POST['auditor'][$i],
-									'time'=>$_POST['time'][$i],
-									'recordtime'=> time(),
+									'pcbnumber'=>$_POST['pcbnumber'][$i],
+									'mbnumber'=>$_POST['mbnumber'][$i],
+									'cardnumber'=>$_POST['cardnumber'][$i],
+									'ramnumber'=>$_POST['ramnumber'][$i],
+									'romnumber'=>$_POST['romnumber'][$i],
+									'asstime'=>$_POST['asstime'][$i],
+									'asser'=>$_POST['asser'][$i],
+									'version'=>$_POST['version'][$i],
+									'testtime'=>$_POST['testtime'][$i],
+									'tester'=>$_POST['tester'][$i],
+									'trytime'=>$_POST['trytime'][$i],
+									'trier'=>$_POST['trier'][$i],
+									'jointime'=>$_POST['jointime'][$i],
+									'trier'=>$_POST['trier'][$i],
 									'comment'=>$_POST['comment'][$i]
+									
 									);
 			}
 			// $datalist[] = array('name'=>$_POST['name']['0'],'idnumber'=>$_POST['idnumber']['0']);
 			// $datalist[] = array('name'=>$_POST['name']['1'],'idnumber'=>$_POST['idnumber']['1']);
 			//print_r($datalist);
-			$collectId = M("Collect")->addAll($datalist);
+			$collectId = M("product")->addAll($datalist);
 			if ($collectId) {
 				// show(1,'排序成功',array('jump_url'=>'/admin.php?c=menu'));
-				$this->redirect('/admin.php?c=menu');
+				$this->redirect('/admin.php?c=product');
 			      //return show(1,'更新成功');
 				//return show(1,'新增成功',$collectId);
 			}
@@ -74,32 +77,30 @@ class MenuController extends CommonController {
 		
 	}
 	public function index(){
-
+		
+		// 考虑分页
 		$pagesize = 10;
 		$page = I('get.p', '1');
 
-		$m_collect = M('Collect');
-		$m_collectrecord = M('Collectrecord');
-		//$m_collect = M('Collect');
+		$m_product = M('product');
 		// 通用查询条件
 		// $cond['is_deleted'] = '0';
-		// [Guard].[dbo].[Collect]
-		$cond['collect.display'] = '1';
-		$collect_list = $m_collect
-			->table('Collect')
-			->join("LEFT JOIN collectrecord ON collectrecord.cid = collect.id")
-			->field('collect.*,count(collectrecord.cid) as countrecord')
+		$cond['product.display'] = '1';
+		$product_list = $m_product
+			->table('product')
+			->join("LEFT JOIN productrecord ON productrecord.cid = product.id")
+			->field('product.*,count(productrecord.cid) as countrecord')
 			->where($cond)
 			->order('id desc')
 			->page($page, $pagesize)
-			->group('collect.isreturn,collect.idnumber,collect.id,collect.name,collect.idmodel,collect.status,collect.number,collect.price,collect.time,collect.buyer,collect.auditor,collect.comment,collect.display,collect.recordtime')
+			->group('product.isreturn,product.devicename,product.id,product.devicetype,product.batch,product.idnumber,product.pcbnumber,product.mbnumber,product.cardnumber,product.ramnumber,product.romnumber,product.asstime,product.asser,product.version,product.testtime,product.tester,product.trytime,product.trier,product.jointime,product.issend,product.sendtime,product.sendtype,product.sendfor,product.comment,product.display')
 			->select();
-		//var_dump($collect_list);exit;
-			//date("",$time);
-		
-		$this->assign('collect_list', $collect_list);
+		//var_dump($product_list);exit;
 
-		$total = $m_collect->where($cond)->count();
+	
+		$this->assign('product_list', $product_list);
+
+		$total = $m_product->where($cond)->count();
 		$t_page = new Page($total, $pagesize);
 		$this->assign('page_html', $t_page->show());
 
@@ -107,93 +108,36 @@ class MenuController extends CommonController {
 		$this->display();
 		//end
 	}
-	/**
-	 * 生产领料
-	 * @return [type] [description]
-	 */
-		public function yieldlist(){
-
-		$pagesize = 10;
-		$page = I('get.p', '1');
-
-		$m_collect = M('Collect');
-		$m_collectrecord = M('Collectrecord');
-		//$m_collect = M('Collect');
-		// 通用查询条件
-		// $cond['is_deleted'] = '0';
-		// [Guard].[dbo].[Collect]
-		$cond['collect.display'] = '1';
-		$collect_list = $m_collect
-			->table('Collect')
-			->join("LEFT JOIN collectrecord ON collectrecord.cid = collect.id")
-			->field('collect.*,count(collectrecord.cid) as countrecord')
-			->where($cond)
-			->order('id desc')
-			->page($page, $pagesize)
-			->group('collect.isreturn,collect.idnumber,collect.id,collect.name,collect.idmodel,collect.status,collect.number,collect.price,collect.time,collect.buyer,collect.auditor,collect.comment,collect.display,collect.recordtime')
-			->select();
-		//var_dump($collect_list);exit;
-			//date("",$time);
-		
-		$this->assign('collect_list', $collect_list);
-
-		$total = $m_collect->where($cond)->count();
-		$t_page = new Page($total, $pagesize);
-		$this->assign('page_html', $t_page->show());
-
-
-		$this->display();
-		//end
-	}
-			/**
-	 * 领取数量
-	 * @return [type] [description]
-	 */
-		public function using(){
-			//var_dump($_POST);exit;
-			if (IS_SET) {
-				$m_collect = M('Collect');
-				$data['id']=$_POST['collect_id'];
- 				$data['number'] =($_POST['number']-$_POST['numbering']) ;
- 				//var_dump($data['number']);exit;
-				$m_collect->save($data);
-				$this->redirect('menu/yieldlist');
-			}
-		//end
-		}		
-	//start
 	/**
 	 * 退货记录
 	 * @return [type] [description]
 	 */
-		public function isreturn(){
-
+	public function isreturn(){
+		
+		// 考虑分页
 		$pagesize = 10;
 		$page = I('get.p', '1');
 
-		$m_collect = M('Collect');
-		$m_collectrecord = M('Collectrecord');
-		//$m_collect = M('Collect');
+		$m_product = M('product');
 		// 通用查询条件
 		// $cond['is_deleted'] = '0';
-		// [Guard].[dbo].[Collect]
-		$cond['collect.display'] = '1';
-		$cond['collect.isreturn'] = '1';
-		$collect_list = $m_collect
-			->table('Collect')
-			->join("LEFT JOIN collectrecord ON collectrecord.cid = collect.id")
-			->field('collect.*,count(collectrecord.cid) as countrecord')
+		$cond['product.display'] = '1';
+		$cond['product.isreturn'] = '1';
+		$product_list = $m_product
+			->table('product')
+			->join("LEFT JOIN productrecord ON productrecord.cid = product.id")
+			->field('product.*,count(productrecord.cid) as countrecord')
 			->where($cond)
 			->order('id desc')
 			->page($page, $pagesize)
-			->group('collect.isreturn,collect.idnumber,collect.id,collect.name,collect.idmodel,collect.status,collect.number,collect.price,collect.time,collect.buyer,collect.auditor,collect.comment,collect.display,collect.recordtime')
+			->group('product.isreturn,product.devicename,product.id,product.devicetype,product.batch,product.idnumber,product.pcbnumber,product.mbnumber,product.cardnumber,product.ramnumber,product.romnumber,product.asstime,product.asser,product.version,product.testtime,product.tester,product.trytime,product.trier,product.jointime,product.issend,product.sendtime,product.sendtype,product.sendfor,product.comment,product.display,product.display')
 			->select();
-		//var_dump($collect_list);exit;
-			//date("",$time);
-		
-		$this->assign('collect_list', $collect_list);
+		//var_dump($product_list);exit;
 
-		$total = $m_collect->where($cond)->count();
+	
+		$this->assign('product_list', $product_list);
+
+		$total = $m_product->where($cond)->count();
 		$t_page = new Page($total, $pagesize);
 		$this->assign('page_html', $t_page->show());
 
@@ -201,40 +145,42 @@ class MenuController extends CommonController {
 		$this->display();
 		//end
 	}
-	//start
+
+
+		//start
 	/**
 	 * 历史记录
 	 * @return [type] [description]
 	 */
-		public function collectrecord(){
+		public function productrecord(){
 		
 		$pagesize = 10;
 		$page = I('get.p', '1');
 
-		$m_collectrecord = M('Collectrecord');
+		$m_productrecord = M('productrecord');
 		// 通用查询条件
 		$cond['cid'] = $_GET['id'];
 		$cond['display'] = '1';
-		$collectrecord_list = $m_collectrecord
+		$productrecord_list = $m_productrecord
 			//->field('id,name,nickname,phone,idnumber,status,status,regtime,logintimes,sex,birthday,idnumber,idpic')
 			->where($cond)
 			->order('id desc')
 			->page($page, $pagesize)
 			//->group('id')
 			->select();
-		//var_dump($collectrecord_list);exit;
-			foreach ($collectrecord_list as &$collectrecord) 
+		//var_dump($productrecord_list);exit;
+			foreach ($productrecord_list as &$productrecord) 
 		{	
 			//$moneys=sprintf("%.2f", $money);
-			//$collectrecord['moneys'] = sprintf("%.2f", $collectrecord['moneys']);//将金额设置为两位浮点型
-			$collectrecord['recordthis'] = date("Y/m/d H:s:i", $collectrecord['recordthis']);
-			//$collectrecord['logintimes'] = date("Y-m-d H:s:i", $collectrecord['logintimes']);
+			//$productrecord['moneys'] = sprintf("%.2f", $productrecord['moneys']);//将金额设置为两位浮点型
+			$productrecord['recordthis'] = date("Y/m/d H:s:i", $productrecord['recordthis']);
+			//$productrecord['logintimes'] = date("Y-m-d H:s:i", $productrecord['logintimes']);
 			
 		}
 		
-		$this->assign('collectrecord_list', $collectrecord_list);
+		$this->assign('productrecord_list', $productrecord_list);
 
-		$total = $m_collectrecord->where($cond)->count();
+		$total = $m_productrecord->where($cond)->count();
 		$t_page = new Page($total, $pagesize);
 		$this->assign('page_html', $t_page->show());
 
@@ -242,13 +188,11 @@ class MenuController extends CommonController {
 		$this->display();
 		//end
 	}
-	
 	public function edit() {
-		$collectId = $_GET['id'];
-		$collect=M("Collect")->find($collectId);
-		$collect['recordtime'] = date("Y/m/d H:s:i",$collect['recordtime']);
-		//var_dump($collect);exit;
-		$this->assign('collect',$collect);
+		$productId = $_GET['id'];
+		$product=M("product")->find($productId);
+		//var_dump($product);exit;
+		$this->assign('product',$product);
 		$this->display();
 	}
 	public function save($data) {
@@ -256,7 +200,7 @@ class MenuController extends CommonController {
 		$data['cid'] = $data['id'];
 		$data['recordthis'] = time();
 		$data['author'] = session('adminUser')['username'];
-		//var_dump($collectId);exit;
+		//var_dump($productId);exit;
 		unset($data['id']);//释放掉
 		try {
 			//start
@@ -266,15 +210,12 @@ class MenuController extends CommonController {
 			    		if (!$data || !is_array($data)) {
 			    			throw_exception('更新的数据不合法');
 			    		}
-			    		$idrecord = M('Collectrecord')->add($data);
-			    		$id = M('Collect')->where('id='.$id)->save($data);
+			    		$idrecord = M('productrecord')->add($data);
+			    		$id = M('product')->where('id='.$id)->save($data);
 			//end
-			//$id = M("Collect")->updateMenuById($collectId, $data);
+			//$id = M("product")->updateMenuById($productId, $data);
 			if($id == false) {
 				return show(0,'更新失败');
-			}
-			if($idrecord == false) {
-				return show(0,'记录失败');
 			}
 			return show(1,'更新成功');
 		}catch(Exception $e) {
@@ -295,7 +236,7 @@ class MenuController extends CommonController {
 			    		throw_exception("状态不合法");
 			    	}
 			    	$data['display'] = $display;
-			    	$res = M("Collect")->where('id='.$id)->save($data);
+			    	$res = M("product")->where('id='.$id)->save($data);
 				//end
 				//$res = D("Collect")->updateStatusById($id, $status);
 				if($res) {
@@ -332,7 +273,6 @@ class MenuController extends CommonController {
 		}
 		return show(0,'排序数据失败',array('jump_url'=>$jumpUrl));
 	}
-
 	public function findlist(){
 	   // var_dump($_POST);exit;
 		
@@ -341,7 +281,7 @@ class MenuController extends CommonController {
 		$pagesize = 10;
 		$page = I('get.p', '1');
 
-		$m_collect = M('Collect');
+		$m_product = M('product');
 		// 通用查询条件
 		
 		// $cond['is_deleted'] = '0';
@@ -349,21 +289,21 @@ class MenuController extends CommonController {
 		//$cond['name']=array('like','%');
 		// $num=($_GET['user_id']);
 		//$map['id']  = array('eq',$num);
-		$cond['name']=array('like',$_POST['value'].'%');
+		$cond['idnumber']=array('like',$_POST['value'].'%');
 		
-		$collect_list = $m_collect
+		$product_list = $m_product
 			//->field('id,name,nickname,phone,idnumber,status,status,regtime,logintimes,sex,birthday,idnumber,idpic')
 			->where($cond)
 			->order('id desc')
 			->page($page, $pagesize)
 			//->group('id')
 			->select();
-		//var_dump($collect_list);exit;
+		//var_dump($product_list);exit;
 
 	
-		$this->assign('collect_list', $collect_list);
+		$this->assign('product_list', $product_list);
 
-		$total = $m_collect->where($cond)->count();
+		$total = $m_product->where($cond)->count();
 		$t_page = new Page($total, $pagesize);
 		$this->assign('page_html', $t_page->show());
 
@@ -373,49 +313,23 @@ class MenuController extends CommonController {
 		}elseif ($_POST['sosuo'] == 2) {
 		$pagesize = 10;
 		$page = I('get.p', '1');
-		$m_collect = M('Collect');
+		$m_product = M('product');
 		$cond['display'] = '1';
-		$cond['idnumber']=array('like',$_POST['value'].'%');
+		$cond['sendfor']=array('like',$_POST['value'].'%');
 		
-		$collect_list = $m_collect
+		$product_list = $m_product
 			//->field('id,name,nickname,phone,idnumber,status,status,regtime,logintimes,sex,birthday,idnumber,idpic')
 			->where($cond)
 			->order('id desc')
 			->page($page, $pagesize)
 			//->group('id')
 			->select();
-		//var_dump($collect_list);exit;
+		//var_dump($product_list);exit;
 
 	
-		$this->assign('collect_list', $collect_list);
+		$this->assign('product_list', $product_list);
 
-		$total = $m_collect->where($cond)->count();
-		$t_page = new Page($total, $pagesize);
-		$this->assign('page_html', $t_page->show());
-
-
-		$this->display('findlist');//action名称
-
-		}elseif ($_POST['sosuo'] == 3) {
-		$pagesize = 10;
-		$page = I('get.p', '1');
-		$m_collect = M('Collect');
-		$cond['display'] = '1';
-		$cond['idmodel']=array('like',$_POST['value'].'%');
-		
-		$collect_list = $m_collect
-			//->field('id,name,nickname,phone,idnumber,status,status,regtime,logintimes,sex,birthday,idnumber,idpic')
-			->where($cond)
-			->order('id desc')
-			->page($page, $pagesize)
-			//->group('id')
-			->select();
-		//var_dump($collect_list);exit;
-
-	
-		$this->assign('collect_list', $collect_list);
-
-		$total = $m_collect->where($cond)->count();
+		$total = $m_product->where($cond)->count();
 		$t_page = new Page($total, $pagesize);
 		$this->assign('page_html', $t_page->show());
 
